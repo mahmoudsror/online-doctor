@@ -4,7 +4,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"online-doctor/users/routes"
+
+	"github.com/mahmoudsror/online-doctor/users/routes"
 )
 
 func main() {
