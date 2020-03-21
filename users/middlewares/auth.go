@@ -4,8 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/mahmoudsror/online-doctor/users/responses"
-	"github.com/mahmoudsror/online-doctor/users/services/auth"
+	"users/responses"
+	"users/services/auth"
 )
 
 // IsAuthorized authorization middleware
@@ -16,6 +16,14 @@ func IsAuthorized(next http.HandlerFunc) http.HandlerFunc {
 			responses.Error(response, http.StatusUnauthorized, errors.New("unauthorized"))
 			return
 		}
+		next(response, req)
+	}
+}
+
+// JSONFormatter format response to json
+func JSONFormatter(next http.HandlerFunc) http.HandlerFunc {
+	return func(response http.ResponseWriter, req *http.Request) {
+		response.Header().Set("Content-Yype", "application/json")
 		next(response, req)
 	}
 }
