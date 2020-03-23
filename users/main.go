@@ -12,7 +12,7 @@ import (
 func main() {
 	port := "3002"
 	fmt.Printf("Api running on port %s\n", port)
-	connections.TestConnection()
+	connections.Connect()
 	routes := routes.NewRouter()
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), routes))
 }
