@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/mahmoudsror/online-doctor/users/routes"
+	"github.com/mahmoudsror/online-doctor/routes"
 )
 
 func main() {
