@@ -1,24 +1,22 @@
 package routes
 
 import (
-	"encoding/json"
-	"net/http"
 	"github.com/gorilla/mux"
-	"github.com/online-doctor/responses"
+	"github.com/mahmoudsror/online-doctor/controllers"
 )
 
 // NewRouter is router function
 func NewRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
-	router.HandleFunc("/", home).Methods("GET")
+	router.HandleFunc("/", controllers.Home).Methods("GET")
 	return router
 }
 
-func home(response http.ResponseWriter, req *http.Request) {
-	response.Header().Set("Content-Type", "application/json")
-	responses.TOJSON(response, struct {
-		Message string `json:"message"`
-	}{
-		Message: "Welcome ",
-	})
-}
+// func home(response http.ResponseWriter, req *http.Request) {
+// 	response.Header().Set("Content-Type", "application/json")
+// 	responses.TOJSON(response, struct {
+// 		Message string `json:"message"`
+// 	}{
+// 		Message: "Welcome ",
+// 	})
+// }
