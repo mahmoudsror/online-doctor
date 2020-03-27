@@ -3,13 +3,14 @@ package routes
 import (
 	"github.com/gorilla/mux"
 	"github.com/mahmoudsror/online-doctor/controllers"
+	"github.com/mahmoudsror/online-doctor/middlewares"
 )
 
 // NewRouter is router function
 func NewRouter() *mux.Router {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", controllers.Home).Methods("GET")
-	router.HandleFunc("/users", controllers.CreateUser).Methods("POST")
+	router.HandleFunc("/users", middlewares.SignupValidator(controllers.CreateUser)).Methods("POST")
 	return router
 }
 
