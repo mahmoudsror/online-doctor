@@ -34,9 +34,9 @@ func SignupValidator(next http.HandlerFunc) http.HandlerFunc {
 			"usertype": []string{"required"},
 		}
 		opts := govalidator.Options{
-			//	Request: req,
-			Rules: rules,
-			Data:  &user,
+			Request: req,
+			Rules:   rules,
+			Data:    &user,
 		}
 
 		validator := govalidator.New(opts)
